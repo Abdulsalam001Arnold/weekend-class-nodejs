@@ -8,7 +8,6 @@ const cors = require('cors')
 const basicRoute = require('./routes/basicRoute')
 const userRoute = require('./routes/userRoutes')
 const {dbConnect} = require('./lib/dbConnect')
-
 const connectDB = async (req, res, next) => {
     try {
       await dbConnect();
@@ -23,7 +22,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Orgin", "*")
+  res.header("Access-Control-Allow-Origin", "*")
     res.header("Access-Control-Allow-Methods", "GET, POST, DELETE")
     res.header("Access-Control-Allow-Headers", "Origin, Content-Type")
     next()
